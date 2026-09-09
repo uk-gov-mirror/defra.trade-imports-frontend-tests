@@ -14,7 +14,7 @@
         <SourceSystem>CDS</SourceSystem>
         <DestinationSystem>ALVS</DestinationSystem>
         <CorrelationId>CDM1836050</CorrelationId>
-        <ServiceCallTimestamp>1730472836050</ServiceCallTimestamp>
+        <ServiceCallTimestamp>2026-02-17T09:01:00.5553237Z</ServiceCallTimestamp>
       </ServiceHeader>
       <Header>
         <EntryReference>24GBBGBKCDMS836050</EntryReference>
