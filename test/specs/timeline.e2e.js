@@ -101,8 +101,7 @@ describe('Timeline Search', () => {
     expect(await SearchResultsPage.getResultText()).toContain(mrn)
 
     await TimelinePage.clickTimelineTab()
-    await expect(await TimelinePage.timelineInfoMessage).toBeDisplayed()
-    await expect(await TimelinePage.timelineInfoMessage.getText()).toContain(
+    expect(await TimelinePage.getTimelineInfoMessage()).toContain(
       'The timeline includes events from the past 180 days only.'
     )
 
@@ -197,8 +196,7 @@ describe('Timeline Search', () => {
     expect(await SearchResultsPage.getResultText()).toContain(dropdownMrn)
 
     await TimelinePage.clickTimelineTab()
-    await expect(await TimelinePage.timelineInfoMessage).toBeDisplayed()
-    await expect(await TimelinePage.timelineInfoMessage.getText()).toContain(
+    expect(await TimelinePage.getTimelineInfoMessage()).toContain(
       'The timeline includes events from the past 180 days only.'
     )
     await expect(await TimelinePage.isTimelineMrnDropdownVisible()).toBe(true)
