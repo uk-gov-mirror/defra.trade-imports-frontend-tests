@@ -14,7 +14,7 @@ class TimelinePage extends Page {
   }
 
   get timelineInfoMessage() {
-    return $('.govuk-inset-text')
+    return $('.btms-timelines .govuk-inset-text')
   }
 
   get timelineTab() {
