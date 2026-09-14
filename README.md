@@ -2,16 +2,19 @@
 
 This repository runs frontend tests against the `btms-portal-frontend` service.
 
-- [Local](#local)
-  - [Requirements](#requirements)
-    - [Node.js](#nodejs)
-  - [Setup](#setup)
-  - [Running local tests](#running-local-tests)
-  - [Debugging local tests](#debugging-local-tests)
-- [Production](#production)
-  - [Debugging tests](#debugging-tests)
-- [Licence](#licence)
-  - [About the licence](#about-the-licence)
+- [trade-imports-frontend-tests](#trade-imports-frontend-tests)
+  - [Local Development](#local-development)
+    - [Requirements](#requirements)
+      - [Node.js](#nodejs)
+    - [Setup](#setup)
+    - [Running local tests](#running-local-tests)
+    - [Debugging local tests](#debugging-local-tests)
+    - [Running BrowserStack tests](#running-browserstack-tests)
+  - [Production](#production)
+    - [Running the tests](#running-the-tests)
+  - [Requirements of CDP Environment Tests](#requirements-of-cdp-environment-tests)
+  - [Licence](#licence)
+    - [About the licence](#about-the-licence)
 
 ## Local Development
 
@@ -36,7 +39,7 @@ Install application dependencies:
 npm install
 ```
 
-Copy `.env.example` to `.env` and fill out the configuration.
+Copy `.env.example` to `.env` and fill out the configuration for each value inside your copied `.env`.
 
 ### Running local tests
 
@@ -46,26 +49,15 @@ To run the tests locally, you will first need to clone `btms-local-environment` 
 docker compose up -d
 ```
 
-Next, in this repository you will need to add/update your local `.env` file with the following values:
+This will run all the relevant services locally which you can then hit by running tests from inside this repository.
+
+To run the tests locally, run the following command:
 
 ```bash
-ENVIRONMENT=local
-ServiceBus__Notifications__ConnectionString=<get_this_from_imports_process_terminal_via_cdp>
-TRADE_IMPORTS_PROCESSOR_USER=<trade_imports_processor_user>
-TRADE_IMPORTS_PROCESSOR_KEY=<get_this_from_imports_process_terminal_via_cdp>
-TRADE_IMPORTS_DATA_API_USER=<trade_imports_data_api_user>
-TRADE_IMPORTS_DATA_API_KEY=<get_this_from_imports_process_terminal_via_cdp>
-BASE_URL_TRADE_IMPORTS_PROCESSOR=
-BASE_URL_BTMS_GATEWAY=
-BASE_URL_TRADE_IMPORTS_DATA_API=
-CDP_API_KEY=
+npm run test:local && npm run report:open
 ```
 
-And lastly, run the following command and this should run the tests locally
-
-```bash
-npm run test:local
-```
+This will run all the tests including the accessibility tests.
 
 ### Debugging local tests
 
